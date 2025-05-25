@@ -3,7 +3,7 @@
 #include <threading/threading.h>
 
 typedef struct sm_state *sm_state_t;
-typedef bool (*sm_state_handler_t)(void* user_data, sm_state_t next_state);
+typedef bool (*sm_state_handler_t)(sm_state_t next_state, void* user_data);
 
 struct sm_state
 {

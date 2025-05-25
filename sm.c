@@ -3,7 +3,7 @@
 void* state_machine_thread(void* user_data)
 {
     sm_core_t sm_core = (sm_core_t) user_data;
-    while (sm_core->current_state.state_function(sm_core->user_data, &sm_core->current_state));
+    while (sm_core->current_state.state_function(&sm_core->current_state, sm_core->user_data));
     return NULL;
 }
 
