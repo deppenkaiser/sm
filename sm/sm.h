@@ -10,7 +10,7 @@ struct sm_state
     sm_state_handler_t state_function;
 };
 
-void sm_run(sm_state_t next_state);
+void sm_run(sm_state_t next_state, void* user_data);
 
 typedef struct sm_core
 {
