@@ -10,15 +10,17 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_library(sm STATIC)
+add_subdirectory(../threading ${CMAKE_BINARY_DIR}/threading_from_sm)
 
 target_sources(sm PRIVATE
     sm.c
 )
 
 target_include_directories(sm PUBLIC
-    ${CMAKE_CURRENT_LIST_DIR}/../threading
+    ${CMAKE_CURRENT_LIST_DIR}
 )
 
 target_link_libraries(sm
-    threading
+	PUBLIC
+    	threading
 )
