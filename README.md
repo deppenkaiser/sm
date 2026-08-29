@@ -40,3 +40,7 @@ cmake --build build
 
 In ein Projekt einbinden: `add_subdirectory(../../libraries/sm …)`,
 Einbindung des Headers über den Include-Pfad `<sm/sm.h>`.
+
+## Wiki
+
+Dokumentation: [sm – minimal threaded State Machine](https://czybor.i234.me/wiki/sw-module/sm/) (Quartz-Wiki)
