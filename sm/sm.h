@@ -1,5 +1,6 @@
 #pragma once
 
+#include <api/api.h>
 #include <threading/threading.h>
 
 typedef struct sm_state *sm_state_t;
@@ -18,3 +19,11 @@ typedef struct sm_core
     pthread_t thread;
     void* user_data;
 } *sm_core_t;
+
+/* Lebenszyklus-Hooks (virtuelle Callbacks, api-Muster):
+ * sm legt in sm.c leere weak-Defaults an, damit die Symbole fuer den
+ * Linker existieren. Die Anwendung ueberschreibt sie im Bedarfsfall mit einer
+ * starken `callback`-Definition (z. B. Speicherverwaltung/Ressourcen ganz am
+ * Anfang bzw. zum Aufraeumen ganz am Ende des Worker-Threads). */
+callback_declaration(void, sm_on_start(sm_core_t core));
+callback_declaration(void, sm_on_stop(sm_core_t core));
